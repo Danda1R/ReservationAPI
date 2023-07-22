@@ -1,0 +1,11 @@
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+}
+
+type Reservation @model {
+  id: ID!
+  user_id: String
+  accessToken: String
+  refreshToken: String
+  reserveID: String
+}

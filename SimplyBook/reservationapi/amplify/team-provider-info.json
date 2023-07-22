@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reservationapi-dev-173125-authRole",
+      "UnauthRoleArn": "arn:aws:iam::646368435183:role/amplify-reservationapi-dev-173125-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::646368435183:role/amplify-reservationapi-dev-173125-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-reservationapi-dev-173125-deployment",
+      "UnauthRoleName": "amplify-reservationapi-dev-173125-unauthRole",
+      "StackName": "amplify-reservationapi-dev-173125",
+      "StackId": "arn:aws:cloudformation:us-east-2:646368435183:stack/amplify-reservationapi-dev-173125/1d3b4f90-28d7-11ee-b232-061f9897c4b1",
+      "AmplifyAppId": "d1wlc4utg32c4n"
+    },
+    "categories": {
+      "api": {
+        "reservationapi": {}
+      }
+    }
+  }
+}
