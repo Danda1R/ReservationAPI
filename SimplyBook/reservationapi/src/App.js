@@ -54,9 +54,9 @@ export default function App() {
       myHeadersClient.append("Content-Type", "application/json");
 
       var rawClient = JSON.stringify({
-        name: "Test",
-        email: "Test@gmail.com",
-        phone: "0000000000",
+        name: "Kevin",
+        email: "kevin@gmail.com",
+        phone: "00321300000",
       });
 
       var requestOptionsClient = {
@@ -77,7 +77,7 @@ export default function App() {
       var reserveID = json_textClient["id"];
 
       const details = {
-        user_id: "12345678",
+        user_id: "3123141",
         accessToken: accessToken,
         refreshToken: refreshToken,
         reserveID: reserveID,
@@ -91,19 +91,51 @@ export default function App() {
     }
   }
 
+  async function updateTest() {
+    try {
+      const details = {
+        input: {
+          id: "6a63a2b0-a486-464f-96b5-703ce7ff0fae",
+          user_id: "12345678",
+          accessToken:
+            "af0b81b0f627e868ad476ecf0569c3ea861cf8bbe308c3eab2fa37c4a881f8cb",
+          refreshToken:
+            "12998b72010c1a8fc87c566f3fd5d2fd035002240e44b4c49dc54ca47f56607ac",
+          reserveID: "31",
+        },
+      };
+      console.log(details);
+      /* const reservationData = await API.graphql({
+        query: mutations.updateReservation,
+        variables: { input: details },
+      }); */
+      const reservationData = await API.graphql(
+        graphqlOperation(mutations.updateReservation, details)
+      );
+      console.log(reservationData);
+    } catch (err) {
+      console.log({ err });
+    }
+  }
+
   async function testTokens() {
     try {
       var reservationID = "6a63a2b0-a486-464f-96b5-703ce7ff0fae";
+      console.log("Test1");
       const reservationData = await API.graphql(
         graphqlOperation(
           `query MyQuery {getReservation(id: "` +
             reservationID +
-            `") { accessToken, refreshToken}}`
+            `") { user_id, accessToken, refreshToken, reserveID }}`
         )
       );
 
+      console.log("Test0");
+
+      var user_id = reservationData.data.getReservation.user_id;
       var accessTokenTest = reservationData.data.getReservation.accessToken;
       var refreshTokenTest = reservationData.data.getReservation.refreshToken;
+      var reserveID = reservationData.data.getReservation.reserveID;
 
       var myHeaders = new Headers();
       myHeaders.append("X-Company-Login", "juegojuegos");
@@ -125,19 +157,22 @@ export default function App() {
 
       console.log(json_text);
 
-      if (json_text["code"] === "419") {
+      if (json_text["code"] == "419") {
         console.log("Correct");
         var tokens = await refreshOldToken(refreshTokenTest);
         const details = {
-          accessTokenTest: tokens[0],
-          refreshTokenTest: tokens[1],
-          id: "6a63a2b0-a486-464f-96b5-703ce7ff0fae",
+          input: {
+            id: "6a63a2b0-a486-464f-96b5-703ce7ff0fae",
+            user_id: user_id,
+            accessToken: tokens[0],
+            refreshToken: tokens[1],
+            reserveID: reserveID,
+          },
         };
         console.log("Test: " + tokens[0]);
-        const reservationData = await API.graphql({
-          query: mutations.updateReservation,
-          variables: { input: details },
-        });
+        const reservationData = await API.graphql(
+          graphqlOperation(mutations.updateReservation, details)
+        );
       }
     } catch (err) {
       console.log({ err });
@@ -170,19 +205,14 @@ export default function App() {
     var text = await responseRefresh.text();
     var json_text = await JSON.parse(text);
 
-    if (json_text["code"] === "401") {
-      console.log("Correct");
+    console.log("Test2");
+    console.log(json_text);
+    console.log("Test3");
+
+    if (json_text["code"] == "401") {
+      console.log("Test4");
       var tokens = await makeToken();
-      const details = {
-        accessTokenTest: tokens[0],
-        refreshTokenTest: tokens[1],
-        id: "6a63a2b0-a486-464f-96b5-703ce7ff0fae",
-      };
-      console.log("Test: " + tokens[0]);
-      const reservationData = await API.graphql({
-        query: mutations.updateReservation,
-        variables: { input: details },
-      });
+      return tokens;
     }
 
     var textRefresh = await responseRefresh.text();
