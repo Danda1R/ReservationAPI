@@ -1,0 +1,178 @@
+{
+  "api": {
+    "jjs": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "jjs6473b7c6": {
+      "customAuth": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "function": {
+    "calculateRSVPtotal": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "calculatingRSVPtotals": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "jjs"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_jjs6473b7c6_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_auth_jjs6473b7c6_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "jjs6473b7c6"
+        }
+      ]
+    },
+    "AMPLIFY_function_calculateRSVPtotal_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "calculateRSVPtotal"
+        }
+      ]
+    },
+    "AMPLIFY_function_calculateRSVPtotal_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "calculateRSVPtotal"
+        }
+      ]
+    },
+    "AMPLIFY_function_calculatingRSVPtotals_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "calculatingRSVPtotals"
+        }
+      ]
+    },
+    "AMPLIFY_function_calculatingRSVPtotals_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "calculatingRSVPtotals"
+        }
+      ]
+    }
+  }
+}

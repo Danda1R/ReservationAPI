@@ -1,0 +1,53 @@
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: AWSEmail!
+  phone: AWSPhone
+  isActive: Boolean
+  userimage: String
+  rsvp: [Rsvp] @hasMany(indexName: "byUser", fields: ["id"])
+  accessToken: String
+  refreshToken: String
+  reserveID: String
+  username: String
+  groups: [Group] @manyToMany(relationName: "GroupUser")
+}
+
+type Group @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  numMembers: Int
+  user: [User] @manyToMany(relationName: "GroupUser")
+  event: [Event] @hasMany(indexName: "byGroup", fields: ["id"])
+  isApproved: Boolean
+  creatorid: String!
+}
+
+type Event @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  address: String!
+  description: String
+  start_datetime: AWSDateTime!
+  end_datetime: AWSDateTime
+  venue_name: String
+  isApproved: Boolean
+  eventimage: String
+  organizerid: String
+  group: Group @belongsTo(fields: ["groupid"])
+  groupid: ID @index(name: "byGroup")
+  rsvp: [Rsvp] @hasMany(indexName: "byEvent", fields: ["id"])
+  rsvp_total: Int
+}
+
+type Rsvp @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  status: Int
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+  user: User @belongsTo(fields: ["userid"])
+  userid: ID @index(name: "byUser")
+  event: Event @belongsTo(fields: ["eventid"])
+  eventid: ID @index(name: "byEvent")
+}

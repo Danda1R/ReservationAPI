@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-jjs-dev-164946-authRole",
+      "UnauthRoleArn": "arn:aws:iam::646368435183:role/amplify-jjs-dev-164946-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::646368435183:role/amplify-jjs-dev-164946-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-jjs-dev-164946-deployment",
+      "UnauthRoleName": "amplify-jjs-dev-164946-unauthRole",
+      "StackName": "amplify-jjs-dev-164946",
+      "StackId": "arn:aws:cloudformation:us-east-1:646368435183:stack/amplify-jjs-dev-164946/551630e0-0c87-11ee-aa10-0e2d0024831b",
+      "AmplifyAppId": "d2mal8bd4ijpx0"
+    },
+    "categories": {
+      "auth": {
+        "jjs6473b7c6": {
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::646368435183:role/Cognito_JuegoJuegosIDPoolAuth_Role",
+          "authRoleName": "Cognito_JuegoJuegosIDPoolAuth_Role",
+          "identityPoolId": "us-east-1:04b66024-8cb8-4799-9bbf-8a03a3e937e1",
+          "identityPoolName": "Juego.JuegosIDPool",
+          "nativeClientId": "3bhjhpkd0dk40q7i2tgjai8i8",
+          "unauthRoleArn": "arn:aws:iam::646368435183:role/Cognito_JuegoJuegosIDPoolUnauth_Role",
+          "unauthRoleName": "Cognito_JuegoJuegosIDPoolUnauth_Role",
+          "userPoolId": "us-east-1_HP2LSOYF8",
+          "userPoolName": "amplify_backend_manager_d2locftvdkr97j",
+          "webClientId": "3bhjhpkd0dk40q7i2tgjai8i8"
+        }
+      },
+      "function": {
+        "calculateRSVPtotal": {
+          "deploymentBucketName": "amplify-jjs-dev-164946-deployment",
+          "s3Key": "amplify-builds/calculateRSVPtotal-384f4e6f7069626d2b70-build.zip"
+        },
+        "calculatingRSVPtotals": {
+          "deploymentBucketName": "amplify-jjs-dev-164946-deployment",
+          "s3Key": "amplify-builds/calculatingRSVPtotals-4165334f41326e4a7667-build.zip"
+        }
+      }
+    }
+  }
+}
