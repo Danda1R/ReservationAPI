@@ -174,5 +174,12 @@
         }
       ]
     }
+  },
+  "storage": {
+    "s3jjsstorageimages": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
   }
 }

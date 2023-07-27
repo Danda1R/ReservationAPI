@@ -30,12 +30,16 @@
       "function": {
         "calculateRSVPtotal": {
           "deploymentBucketName": "amplify-jjs-dev-164946-deployment",
-          "s3Key": "amplify-builds/calculateRSVPtotal-384f4e6f7069626d2b70-build.zip"
+          "s3Key": "amplify-builds/calculateRSVPtotal-4f2b4c676c4e6f71426d-build.zip"
         },
         "calculatingRSVPtotals": {
           "deploymentBucketName": "amplify-jjs-dev-164946-deployment",
-          "s3Key": "amplify-builds/calculatingRSVPtotals-4165334f41326e4a7667-build.zip"
+          "s3Key": "amplify-builds/calculatingRSVPtotals-73785343725679525549-build.zip"
         }
+      },
+      "storage": {
+        "s3jjsstorageuserimage": {},
+        "s3jjsstorageimages": {}
       }
     }
   }

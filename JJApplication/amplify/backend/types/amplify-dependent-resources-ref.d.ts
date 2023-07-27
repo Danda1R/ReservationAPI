@@ -22,5 +22,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "s3jjsstorageimages": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }

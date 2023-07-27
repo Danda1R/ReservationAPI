@@ -1,0 +1,11 @@
+{
+  "resourceName": "s3jjsstorageimages",
+  "bucketName": "jjs-storage-images",
+  "policyUUID": "3ff21560",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ]
+}
